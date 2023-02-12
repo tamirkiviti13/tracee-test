@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: printenv
+        id: david
         name: TAMirKiviti
       - run: cat ${{ env.GITHUB_STEP_SUMMARY }}
         name: test
