@@ -7,8 +7,25 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: printenv
-        id: david
-        name: TAMirKiviti
-      - run: cat ${{ env.GITHUB_STEP_SUMMARY }}
-        name: test
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump env context
+        run: echo '${{ toJSON(env) }}'
+      - name: Dump vars context
+        run: echo '${{ toJSON(vars) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
+      #- run: printenv
+      #  id: david
+      #  name: TAMirKiviti
+      #- run: cat ${{ env.GITHUB_STEP_SUMMARY }}
+      #  name: test
