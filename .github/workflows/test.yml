@@ -24,8 +24,8 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
-      #- run: printenv
-      #  id: david
-      #  name: TAMirKiviti
+      - run: printenv
+        id: david
+        name: TAMirKiviti
       #- run: cat ${{ env.GITHUB_STEP_SUMMARY }}
       #  name: test
