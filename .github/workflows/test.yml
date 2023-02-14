@@ -20,6 +20,8 @@ jobs:
         run: echo '${{ toJSON(steps) }}'
       - name: Dump runner context
         run: echo '${{ toJSON(runner) }}'
+      - name: Print current step number
+        run: echo "Current step - ${{ env.GITHUB_STEP_NAME }}"
       - name: Dump strategy context
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
