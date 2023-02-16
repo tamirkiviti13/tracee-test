@@ -44,6 +44,6 @@ jobs:
       - run: cat /tmp/tracee/out/pcap/single.pcap
       
       - name: Upload a Build Artifact
-      - uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v3.1.2
         with:
           path: /tmp/tracee/out/pcap/single.pcap
