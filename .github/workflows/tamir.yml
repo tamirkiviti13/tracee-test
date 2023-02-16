@@ -45,6 +45,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           curl facebook.com
-      - run: cat /tmp/tracee/out/pcap/single.pcap
       
       - run: printenv
