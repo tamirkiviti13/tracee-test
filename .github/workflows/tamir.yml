@@ -47,3 +47,5 @@ jobs:
           curl facebook.com
       
       - run: printenv
+      
+      - run: cat $GITHUB_EVENT_PATH
