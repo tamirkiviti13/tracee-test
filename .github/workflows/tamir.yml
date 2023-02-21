@@ -46,6 +46,9 @@ jobs:
           echo test, and deploy your project.
           curl facebook.com
       
+      - run: |
+          curl https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs
+      
       - run: printenv
       
       - run: cat $GITHUB_EVENT_PATH
