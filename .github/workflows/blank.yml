@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
-        run: echo "Hello, world!"
+        run: ls -lRa $HOME
       - name: Step 2
-        run: ls -lr ${{ runner.temp }}/_github_workflow
+        run: ls -lRa ${{ runner.temp }}
