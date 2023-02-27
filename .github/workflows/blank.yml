@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   my_job:
+    name: tamir
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
