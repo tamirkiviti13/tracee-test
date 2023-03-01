@@ -13,3 +13,4 @@ jobs:
         run: ls -lRa ${{ runner.temp }}
       - name: env
         run: printenv
+      - run: python3 -c 'print("hello")'
