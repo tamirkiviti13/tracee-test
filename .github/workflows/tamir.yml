@@ -22,12 +22,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: aquasecurity/tracee-action@v0.3.0-start
       - run: |
           docker run --name tracee --rm -d -t --pid=host --cgroupns=host --privileged -v /etc/os-release:/etc/os-release-host:ro -v /tmp/tracee/:/tmp/tracee:rw -v /boot/config-$(uname -r):/bott/config-$(uname -r) -e LIBBPFGO_OSRELEASE_FILE=/etc/os-release-host aquasec/tracee:0.11.1 tracee --output none --trace event=net_packet_http --capture network --capture pcap:single --capture pcap-options:filtered --capture pcap-snaplen:max
           sleep 10
-      - uses: step-security/harden-runner@18bf8ad2ca49c14cbb28b91346d626ccfb00c518 # v2.1.0
-        with:
-          egress-policy: audit
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
@@ -52,3 +50,4 @@ jobs:
       - run: printenv
       
       - run: cat $GITHUB_EVENT_PATH
+      - uses: aquasecurity/tracee-action@v0.3.0-stop
