@@ -29,5 +29,5 @@ jobs:
       #- run: printenv
       #  id: david
       #  name: TAMirKiviti
-      #- run: cat ${{ env.GITHUB_STEP_SUMMARY }}
+      #- run: cat ${{ env.GITHUB_EVENT_PATH }}
       #  name: test
