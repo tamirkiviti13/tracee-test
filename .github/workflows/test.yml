@@ -5,6 +5,7 @@ on:
   
 jobs:
   test:
+    name: ori the king
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
