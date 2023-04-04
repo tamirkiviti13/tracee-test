@@ -26,7 +26,7 @@ jobs:
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
       - name: PRint event
-        run: cat ${{ env.GITHUB_EVENT_PATH }}
+        run: printenv
       - name: try another way
         run: cat /home/runner/work/_temp/_github_workflow/event.json
       #- run: printenv
